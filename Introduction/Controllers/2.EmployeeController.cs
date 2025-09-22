@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 
 
+
+
 namespace Introduction.Controllers.Employees_2
 {
 
@@ -103,16 +105,17 @@ namespace Introduction.Controllers.Employees_2
 
 
 
-        //https://localhost:7051/api/EmployeeV2/GetEmployeesListByLocatinAndSalaryWithMultiQueryParams?location=New%20York&salary=28000
+ //https://localhost:7051/api/EmployeeV2/GetEmployeesListByLocatinAndSalaryWithMultiQueryParams?empname=John&location=New%20York&salary=28000
 
         [HttpGet]  // if the request is data fetch then desing with httpget
         [Route("GetEmployeesListByLocatinAndSalaryWithMultiQueryParams")]
         public async Task<IActionResult> GetEmployeesListByLocatinAndSalaryWithQuery(
+            [FromQuery(Name = "empname")]  string empname,
             [FromQuery(Name = "location")] string locationName , 
-            [FromQuery(Name = "salary")] double salary )
+            [FromQuery(Name = "salary")]   double salary)
         {
             var employeesList = await GetEmployees();  // given the resoponse to the guy who asked the data
-            var result = employeesList.Where(x => x.EmpLocation == locationName && x.EmpSalary > salary);
+            var result = employeesList.Where(x => x.EmpLocation == locationName && x.EmpSalary > salary && x.EmpName == empname);
             if (!result.Any())
             {
                 return NotFound($"No employees found with salary and location {locationName} - {locationName} ");   // 404 Not found
@@ -124,31 +127,28 @@ namespace Introduction.Controllers.Employees_2
             //  return Ok(new List<string> { "JOHN", "PEter" });  // 200 success code . json
         }
 
+        //DTO
+        //https://localhost:7051/api/EmployeeV2/GetEmployeesListByLocatinAndSalaryWithMultiQueryParams?empname=John&location=New%20York&salary=28000
 
+        [HttpGet]  // if the request is data fetch then desing with httpget
+        [Route("GetEmployeesListByLocatinAndSalaryWithMultiQueryParamsWithDTO")]
+        public async Task<IActionResult> GetEmployeesListByLocatinAndSalaryWithQueryWithDTO(
+            [FromQuery] EmployeeDTO employee)
+        {
+            var employeesList = await GetEmployees();  // given the resoponse to the guy who asked the data
+            var result = employeesList.Where(x => x.EmpLocation == employee.Location && x.EmpSalary > employee.Salary && x.EmpName == employee.EmpName);
+            if (!result.Any())
+            {
+                return NotFound($"No employees found with salary and location {employee.Location} - {employee.Salary} ");   // 404 Not found
+            }
+            else
+            {
+                return Ok(result);
+            }
+            //  return Ok(new List<string> { "JOHN", "PEter" });  // 200 success code . json
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
         private async Task<List<Employee>> GetEmployees()
         {
             await Task.Delay(2000);
@@ -176,5 +176,14 @@ namespace Introduction.Controllers.Employees_2
         public string EmpName { get; set; }
         public string EmpLocation{ get; set; }
         public double EmpSalary { get; set; }
+    }
+
+
+    public class EmployeeDTO
+    {
+        public string EmpName { get; set; }
+        public string Location { get; set; }
+        public double Salary { get; set; }
+
     }
 }
