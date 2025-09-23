@@ -1,10 +1,13 @@
 ﻿using Introduction.Controllers.Employees_2;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 
 namespace Introduction.Controllers.Employees_3
 {
 
+
+    //https://localhost:7051/api/EmployeeV3/CreateEmployee
     [ApiController]
     [Route("api/[Controller]")]
 
@@ -64,6 +67,136 @@ namespace Introduction.Controllers.Employees_3
 
 
 
+        //https://localhost:7051/api/EmployeeV3/CreateEmployee
+
+        //public string Name { get; set; }
+        //public string Location { get; set; }
+        //public decimal Salary { get; set; }
+        //public int Age { get; set; }
+        //public DateTime JoiningDate { get; set; }
+        //public DateTime? DOB { get; set; }
+        //public string StreetAdress { get; set; }
+
+
+        ////{
+        //   namespace 
+        
+        ////}
+
+        //Create the new user story
+        [HttpPost]
+        [Route("CreateEmployee")]
+        public async Task<IActionResult> CreateEmployee(
+           [FromBody] NewEmployeeDTO newemployee)
+        {
+
+           var result =    await NewEmployee(newemployee);
+           if(result  == "Failed")
+            {
+                return BadRequest("Employee deatils are not good narmada . please give proepr details");
+            }
+
+            return Created("Api/Employeev3/CreateEmployee", newemployee);
+        }
+
+
+
+        //Create the new user story
+        [HttpPost]
+        [Route("CreateEmployee1")]
+        public async Task<IActionResult> CreateEmployee1()
+        {
+            await Task.Delay (1000);
+            return Ok("succes");
+           
+        }
+
+
+        private async Task<string> NewEmployee(NewEmployeeDTO newemployee)
+        {
+
+            await Task.Delay(2000);
+
+            if (string.IsNullOrWhiteSpace(newemployee.Name))
+            {
+                return "failed";
+            }
+            return "Success";
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //resource | action | endpoint 
+        //create new empoloyy
+
+            //1. Think that okay we will get the new record from the request
+
+            // Side by side you and frontend developer needs to discuss what kind of data we need to communicate
+
+
+
+            //User ---> Instagram app uses ----->  3 hours
+
+            //PBI ---> User story
+
+            //Enviornment : Dev , QA , UAT , CERT , Production
+
+            //BA  : Venkatesh  
+
+            //Prdocut owners :  Usha & Divya
+
+            //Mgr : Mounika
+
+            //S.Mgr :   b and hemanth
+
+            //Enduser : Sravani & Bhavya (money)
+
+            //Grooming Calls  
+
+
+
+            //narmada ----> frontend developer   dev
+
+            //DB     : pavitra 
+            //Tester : Swapna 
+
+
+            //  Madan    -----> .net developer
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,5 +229,18 @@ public class EmployeeDTO
     public string EmpName { get; set; }
     public string Location { get; set; }
     public double Salary { get; set; }
+
+}
+
+public class NewEmployeeDTO
+{
+    public string? Name { get; set; }
+    public string Location { get; set; }
+    public decimal Salary { get; set; }
+    public int Age { get; set; }
+    public DateTime JoiningDate { get; set; }
+    public DateTime? DOB { get; set; }
+    public string? StreetAdress { get; set; }
+
 
 }
