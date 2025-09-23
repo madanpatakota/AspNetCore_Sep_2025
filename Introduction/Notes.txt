@@ -3,3 +3,8 @@
 
 1. what is the controller ?
    conroller which is useful to prepare the resoruces | actions | endpoints 
+
+
+
+angular 
+put | patch | Delte
