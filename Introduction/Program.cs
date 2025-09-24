@@ -1,8 +1,25 @@
+using Introduction;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+
+//you are creating the instance   IEmployeeV2Reposiotry   = new InMemoryEmployeeRepository( i am the boss angularcorecomipler
+builder.Services.AddScoped<IEmployeeV2Reposiotry, InMemoryEmployeeRepository>();
+
+
+
+//GUID ---- In What is GuID in Csharp??
+
+//Real time example
+
+
+//addscoped , addtransitent and addsinglton   - 15 mins
+
+//httpcontext -- 10 mins
 
 builder.Services.AddCors((cors) =>
 {
