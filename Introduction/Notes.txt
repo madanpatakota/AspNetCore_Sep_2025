@@ -1,0 +1,15 @@
+﻿YourProject
+│
+├── Controllers
+│   └── CoffeeShopController.cs
+│
+├── Interfaces   👈 (new folder for interfaces)
+│   └── ISingletonCoffee.cs
+│   └── IScopedCoffee.cs
+│   └── ITransientCoffee.cs
+│
+├── Services     👈 (implementations)
+│   └── CoffeeService.cs
+│
+├── Models
+│   └── Coffee.cs
