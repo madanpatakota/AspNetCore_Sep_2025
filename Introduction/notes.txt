@@ -1,0 +1,51 @@
+﻿//context
+"Context" just means the environment or surrounding information available at a given time.
+👉 Example:
+In a classroom, "context" could be:
+- Which student is asking the question
+- What subject is being taught
+- What time the class is running
+
+
+"ClassroomContext"
+-----------------------
+📌 Real-World Context Example (Airport Flight)
+- "Context" = All the surrounding details about your travel at that moment:
+  - Passenger name: Madan
+  - Flight number: AI-203
+  - Gate: 12B
+  - Boarding time: 10:45 AM
+  - Destination: London
+
+
+Imagine you’re using WhatsApp.
+When you send a message, 
+
+the context is:
+-------------------
+Which chat you are in (friend or group)
+What time you are sending the message
+Who the recipient is
+Whether the internet is available
+
+
+httpcontext
+---------------
+header
+
+
+📌 What is HttpContext?
+-----------------------
+In ASP.NET Core, HttpContext is a special context object for web requests.
+It contains everything about the current HTTP request and the response that will be sent back.
+
+
+🔎 What does HttpContext include?
+- Request → URL, headers, query params, body, cookies
+- Response → status code, headers, body, cookies
+- User → identity, roles, claims
+- Items → custom data you can pass along during request
+
+
+
+
