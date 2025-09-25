@@ -7,8 +7,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
+//GUID    --- Unique ideneity
+
 //you are creating the instance   IEmployeeV2Reposiotry   = new InMemoryEmployeeRepository( i am the boss angularcorecomipler
 builder.Services.AddScoped<IEmployeeV2Reposiotry, InMemoryEmployeeRepository>();
+
+//Coffeshop
+
+
+//Register(menu)  program.cs
+
+//10 items --> blackcoffee
+
+
+//IEmployeeV2Reposiotry
+//coffee --->                   server(asp.netcore server)
+//InMemoryEmployeeRepository
+
 
 
 
