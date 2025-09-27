@@ -1,4 +1,4 @@
-﻿namespace Introduction
+﻿namespace Introduction.Middleware
 {
     //Middleware is nothing but act as gate keeper of your every request
 

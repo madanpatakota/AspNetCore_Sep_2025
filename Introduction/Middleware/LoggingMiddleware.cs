@@ -1,4 +1,4 @@
-﻿namespace Introduction
+﻿namespace Introduction.Middleware
 {
     public class LoggingMiddleware
     {
