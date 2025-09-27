@@ -29,12 +29,19 @@
 
 //Jwt  ---> hemandth venkatsh --> video watch ---> 
 
+//JWT and Exception Handling
+
 //solid 
 
 //action 
 
-
-
 // routing ---> 
 
-// forms --->
+// forms   --->
+
+// 1 hour --->   1 hour(my time) ---> progress
+
+// 10%  90% 
+
+
+//final real time project --> structure 
