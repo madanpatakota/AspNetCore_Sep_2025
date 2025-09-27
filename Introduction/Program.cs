@@ -28,7 +28,16 @@ var app = builder.Build();
 
 app.UseCors("AllowLocalhost4200");
 
-app.UseMiddleware<HTTPContextMiddleware>();
+
+
+//Multiple middlewares in future
+//app.UseMiddleware<HTTPContextMiddleware>();
+//logging
+//excption
+//autthenication
+app.UseHttpContextDemo();
+app.UseLoggingContextDemo();
+
 
 app.UseHttpsRedirection();
 
