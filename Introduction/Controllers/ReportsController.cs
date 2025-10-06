@@ -21,5 +21,12 @@ namespace Introduction.Controllers
         {
             return Ok(new { Message = "Monthly report generated.", Email = email });
         }
+
+
+        [HttpGet("Yearly")]
+        public IActionResult GetYearly([FromHeader(Name = "email")] string email)
+        {
+            return Ok(new { Message = "Monthly report generated.", Email = email });
+        }
     }
 }
