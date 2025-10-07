@@ -1,8 +1,22 @@
+using Introduction;
+using Introduction.Extensions;
+using Introduction.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+builder.Services.AddSingleton<IJWTAuthenticationService, JWTAuthenticationService>();
+
+
+
+
+
+
+
 
 builder.Services.AddCors((cors) =>
 {
@@ -25,6 +39,22 @@ var app = builder.Build();
 
 
 app.UseCors("AllowLocalhost4200");
+
+
+//'afadafsdfadfasdsfdasdasdasd';
+
+
+//Multiple middlewares in future
+//app.UseMiddleware<HTTPContextMiddleware>();
+//logging
+//excption
+//autthenication
+//app.UseHttpContextDemo();
+//app.UseLoggingContextDemo();
+
+
+//app.UseAuthentictionDemo();
+app.UseJWTAuthentictionDemo();
 
 app.UseHttpsRedirection();
 
