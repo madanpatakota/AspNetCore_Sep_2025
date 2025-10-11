@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Introduction.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Introduction
+namespace Introduction.Data
 {
     public class TestDataDBContext :DbContext
     {
