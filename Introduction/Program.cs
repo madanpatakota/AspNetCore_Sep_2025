@@ -1,8 +1,17 @@
+using Introduction;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+
+builder.Services.AddDbContext<TestDataDBContext>(
+    option => option.UseSqlServer(
+        builder.Configuration.GetConnectionString("TestConnection"))
+    );
 
 builder.Services.AddCors((cors) =>
 {
