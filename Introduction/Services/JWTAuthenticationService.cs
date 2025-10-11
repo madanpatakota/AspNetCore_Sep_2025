@@ -2,6 +2,7 @@
 //using System.IdentityModel.Tokens.Jwt;
 //using System.Security.Claims;
 
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -14,19 +15,23 @@ namespace Introduction.Services
 
         // see now i am not deployed my project(AspNetIntroduction) into the azure.
 
+//        // {4A3B812D-649A-4656-A162-C96490A7D27D}
+//        IMPLEMENT_OLECREATE(<<class>>, <<external_name>>, 
+//0x4a3b812d, 0x649a, 0x4656, 0xa1, 0x62, 0xc9, 0x64, 0x90, 0xa7, 0xd2, 0x7d);
 
 
         //Generate the token in diff approach
 
         //Bank with Customer
 
-        private readonly string _secreat = "madan!1234";
-        private readonly string _issuer = "HDFCBank";
+        private readonly string _secreat = "4A3B812D-649A-4656-A162-C96490A7D27D";
+        private readonly string _issuer  = "HDFCBank";
         private readonly string _audiance = "HDFCTellers";
 
         public string GenerateToken(string userName, string role = "Customer")
         {
 
+            role = "Customer";
 
             // Cliam is a piece of infromation about the user...contain Name , Role , email , homeaddres , phone number
 
@@ -105,12 +110,22 @@ namespace Introduction.Services
 
             SecurityToken validateToken;
 
-            var authorizationtoken = token.Substring("Bearer ".Length).Trim();
+            
 
-            ClaimsPrincipal principal = tokenHandler.ValidateToken(authorizationtoken, validatinParams, out validateToken);
+            try
+            {
+                var authorizationtoken = token.Substring("Bearer ".Length).Trim();
+                ClaimsPrincipal principal = tokenHandler.ValidateToken(authorizationtoken, validatinParams, out validateToken);
+                return principal;
 
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            
 
-            return principal;
+            
             //throw new NotImplementedException();
         }
     }

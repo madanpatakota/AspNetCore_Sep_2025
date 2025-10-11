@@ -29,18 +29,20 @@ namespace Introduction.Middleware
             var authizationToken = context.Request.Headers["Authorization"].ToString();
             if (!string.IsNullOrEmpty(authizationToken)){
 
-                //details of the user called princple user identity name , role  values
-               //ClaimsPrincipal principal = _jwtauthetnicationService.ValidateToken(authizationToken);
 
-               // if(principal != null)
-               // {
-               //     context.User = principal;    
-               // }
-               // else
-               // {
-               //     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-               //     return;
-               // }
+
+                ////details of the user called princple user identity name , role values
+                ClaimsPrincipal principal = _jwtauthetnicationService.ValidateToken(authizationToken);
+
+                if (principal != null)
+                {
+                    context.User = principal;
+                }
+                else
+                {
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    return;
+                }
 
             }
             else

@@ -15,6 +15,9 @@ namespace Introduction.Controllers
             _JWTAuthenticationService = jWTAuthenticationService;
         }
 
+
+
+        [Authorize]  // check the cliamprinciple having the isauthetincation = true or not 
         //https://localhost:7115/api/BankTransactionsJWT/GetCustomerTransactions
         [HttpPost("GetCustomerTransactions")]  //Madan
         public IActionResult GetCustomerTransactions()
@@ -29,7 +32,7 @@ namespace Introduction.Controllers
 
         //Autherzition
         //wheater authetincated user having to access the particular resoruce or not
-        [Authorize(Roles = "Customer")]
+        [Authorize]   //isaunticated = tre && Roles = Customer.
         [HttpPost("GetBankLevelTransactions")]
         public IActionResult GetBankLevelTransactions()
         {
