@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Introduction.Migrations
 {
-    [DbContext(typeof(TestDataDBContext))]
+    [DbContext(typeof(BankDataDBContext))]
     [Migration("20251011143105_AddedBook")]
     partial class AddedBook
     {

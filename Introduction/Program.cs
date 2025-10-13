@@ -15,9 +15,9 @@ builder.Services.AddControllers();
 
 
 
-builder.Services.AddDbContext<TestDataDBContext>(
+builder.Services.AddDbContext<BankDataDBContext>(
     option => option.UseSqlServer(
-        builder.Configuration.GetConnectionString("TestConnection"))
+        builder.Configuration.GetConnectionString("BankDBConnection"))
     );
 
 

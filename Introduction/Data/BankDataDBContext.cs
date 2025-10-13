@@ -1,13 +1,14 @@
 ﻿using Introduction.Models;
 using Microsoft.EntityFrameworkCore;
+using TestApp.API.Models;
 
 namespace Introduction.Data
 {
-    public class TestDataDBContext :DbContext
+    public class BankDataDBContext :DbContext
     {
 
         //options  contains the Connection related details
-        public TestDataDBContext(DbContextOptions<TestDataDBContext> options):base(options)
+        public BankDataDBContext(DbContextOptions<BankDataDBContext> options):base(options)
         {
 
         }
@@ -15,8 +16,11 @@ namespace Introduction.Data
         //models ---> go as tables into the database 
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<BankTransaction>  Transactions { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Branch> Branchs { get; set; }
 
-        public DbSet<Book> Books { get; set; }
+        //public DbSet<Book> Books { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

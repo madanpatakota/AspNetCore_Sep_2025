@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.API", "Introduction\TestApp.API.csproj", "{EEE295ED-705E-44B9-B2B1-C3E802B6849F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.API", "Introduction\BankApp.API.csproj", "{EEE295ED-705E-44B9-B2B1-C3E802B6849F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Repositories", "TestApp.Repositories\TestApp.Repositories.csproj", "{EF7A46AA-7D35-48DD-8533-CE903FEF2564}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Repositories", "TestApp.Repositories\BankApp.Repositories.csproj", "{EF7A46AA-7D35-48DD-8533-CE903FEF2564}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Entities", "TestApp.Entities\TestApp.Entities.csproj", "{E54C63AA-7EE9-4F81-9E02-4285CC826169}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Entities", "TestApp.Entities\BankApp.Entities.csproj", "{E54C63AA-7EE9-4F81-9E02-4285CC826169}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Services", "TestApp.Services\TestApp.Services.csproj", "{7649278A-1151-4519-996A-6E4D92786E26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Services", "TestApp.Services\BankApp.Services.csproj", "{7649278A-1151-4519-996A-6E4D92786E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
