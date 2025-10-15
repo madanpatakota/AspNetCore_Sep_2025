@@ -41,7 +41,7 @@ namespace Introduction.Repositories
         /// <returns></returns>
         public async Task DeleteCustomerAsync(Customer entity)
         {
-            _bankDataDBContext.Customers.Remove(entity);
+                  _bankDataDBContext.Customers.Remove(entity);
             await _bankDataDBContext.SaveChangesAsync();
         }
 
@@ -61,7 +61,7 @@ namespace Introduction.Repositories
         /// </summary>
         /// <param name="ID"></param>
         /// <returns>Cusomer</returns>
-        public async  Task<Customer> GetCustomerAsyncById(int ID)
+        public async Task<Customer> GetCustomerAsyncById(int ID)
         {
             //Find method  -sync
             return await _bankDataDBContext.Customers.FindAsync(ID);

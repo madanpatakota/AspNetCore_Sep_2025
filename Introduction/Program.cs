@@ -10,11 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
-
-
-
-
-
 builder.Services.AddDbContext<BankDataDBContext>(
     option => option.UseSqlServer(
         builder.Configuration.GetConnectionString("BankDBConnection"))
