@@ -20,8 +20,4 @@
     <Folder Include="ActionFilters\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="DTOs\AccountDTO.cs" />
-  </ItemGroup>
-
 </Project>
