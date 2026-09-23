@@ -48,7 +48,7 @@ namespace Introduction.Controllers.Employees_4
         //https://localhost:7051/api/EmployeeV4/updateEmployee/1
         [HttpPut]
         [Route("updateEmployee/{id}")]
-        public  async  Task<IActionResult> UpdateEmployee([FromRoute] int Id, [FromBody] EmployeeDTO empdto)
+        public  async  Task<IActionResult> UpdateEmployee([FromRoute] int Id, [FromBody] EmployeeDTOV4 empdto)
         {
             await Task.Delay(2000);
 
@@ -87,7 +87,7 @@ namespace Introduction.Controllers.Employees_4
 
         [HttpPatch]
         [Route("UpdateEmployeeWithFewData/{Id}")]
-        public async Task<IActionResult> UpdateEmployeeWithFewData([FromRoute] int Id, [FromBody] EmployeeDTO empdto)
+        public async Task<IActionResult> UpdateEmployeeWithFewData([FromRoute] int Id, [FromBody] EmployeeDTOV4 empdto)
         {
             await Task.Delay(2000);
 
@@ -126,7 +126,7 @@ namespace Introduction.Controllers.Employees_4
 
         [HttpDelete]
         [Route("DeleteEmployee/{Id}")]
-        public async Task<IActionResult> DeleteEmployee([FromRoute] int Id , [FromBody] EmployeeDTO employeedto)
+        public async Task<IActionResult> DeleteEmployee([FromRoute] int Id , [FromBody] EmployeeDTOV4 employeedto)
         {
             await Task.Delay(2000);   //ctrl+shift+f10
 
@@ -200,7 +200,7 @@ namespace Introduction.Controllers.Employees_4
 
 
     // app-root
-    public class EmployeeDTO
+    public class EmployeeDTOV4
     {
         public string Name { get; set; }        //Madanaotri
         public string? Location { get; set; }
