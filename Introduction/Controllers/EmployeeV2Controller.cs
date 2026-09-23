@@ -45,7 +45,7 @@ namespace Introduction
         {
             //_repo =  new EmployeeReposiotry();
             await Task.Delay(1000);
-            var result = _repo.Employees();
+            var result = _imprepo.Employees();
             return Ok(result);
         }
     }
