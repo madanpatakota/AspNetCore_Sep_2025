@@ -34,7 +34,9 @@ namespace Introduction.Controllers.Employees_2
         public async Task<IActionResult> GetEmployeesList(int Id)
         {
             var employeesList = await GetEmployees();  // given the resoponse to the guy who asked the data
+            
             var result = employeesList.Where(x => x.EmpId == Id);
+            
             if (!result.Any())
             {
                 return NotFound($"No employees found with the empid  of {Id} ");   // 404 Not found
@@ -44,6 +46,7 @@ namespace Introduction.Controllers.Employees_2
                return Ok(result.First());
             }
               //  return Ok(new List<string> { "JOHN", "PEter" });  // 200 success code . json
+        
         }
 
 

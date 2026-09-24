@@ -48,7 +48,7 @@ namespace Introduction.Controllers.Employees_1
             string EmpName = "Madan";
 
 
-            var employeesList = await GetEmployees();  // given the resoponse to the guy who asked the data
+            var employeesList = await GetEmployees(); // given the resoponse to the guy who asked the data
 
 
             var count =   employeesList.Where(x => x == EmpName).Count();  
@@ -59,6 +59,7 @@ namespace Introduction.Controllers.Employees_1
                 return NotFound($"No employees found with the name of {EmpName} ");   // 404 Not found
             }
             return Ok(new List<string> { "JOHN", "PEter" });  // 200 success code . json
+
         }
 
 
