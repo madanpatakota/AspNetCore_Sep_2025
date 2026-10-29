@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Introduction
+namespace Introduction.EmployeeV2
 {
-
-
 
     //200 , 201 , 500 , 404 , 403 , 
 
@@ -21,9 +19,12 @@ namespace Introduction
         private IEmployeeV2Reposiotry _imprepo;
         //IEmployeeV2Reposiotry   .Employees();
         //IEmployeeV2Reposiotry repo  ( new InMemoryEmployeeRepository)
-        public EmployeeV2WithDI(IEmployeeV2Reposiotry repo)
+        public EmployeeV2WithDI()
         {
-            _imprepo = repo;  // Here i am trying to create the instance of the class
+            //_imprepo = repo;  // Here i am trying to create the instance of the class
+
+            //i need to create the instance of the class  InMemoryEmployeeRepository- its very imporant
+            _imprepo =  new InMemoryEmployeeRepository();
         }
 
 
@@ -34,16 +35,38 @@ namespace Introduction
         //    return Ok("success");
         //}
 
-
-
-
         //action
         //https://localhost:7115/api/EmployeeV2WithDI/GetAllElmployees
         [HttpGet]
         [Route("GetAllElmployees")]
         public async Task<IActionResult> GetAllEmp()
         {
-            //_repo =  new EmployeeReposiotry();
+            await Task.Delay(1000);
+            var result = _imprepo.Employees();
+            return Ok(result);
+        }
+
+
+        //action
+        //https://localhost:7115/api/EmployeeV2WithDI/GetAllElmployees
+        [HttpGet]
+        [Route("GetAllElmployees1")]
+        public async Task<IActionResult> GetAllEmp1()
+        {
+            //_imprepo = new InMemoryEmployeeRepository();
+            await Task.Delay(1000);
+            var result = _imprepo.Employees();
+            return Ok(result);
+        }
+
+
+        //action
+        //https://localhost:7115/api/EmployeeV2WithDI/GetAllElmployees
+        [HttpGet]
+        [Route("GetAllElmployees2")]
+        public async Task<IActionResult> GetAllEmp2()
+        {
+            //_imprepo = new InMemoryEmployeeRepository();
             await Task.Delay(1000);
             var result = _imprepo.Employees();
             return Ok(result);
@@ -59,7 +82,7 @@ namespace Introduction
     public class InMemoryEmployeeRepository : IEmployeeV2Reposiotry
     {
 
-        public InMemoryEmployeeRepository(int id , string justnothing)
+        public InMemoryEmployeeRepository()
         {
 
         }

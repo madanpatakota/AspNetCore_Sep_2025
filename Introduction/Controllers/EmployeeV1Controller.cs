@@ -12,7 +12,7 @@ namespace Introduction
     public class EmployeeV1WithOutDIController : ControllerBase    // HighLigher Level  its giving the response to the clinet
     {
 
-        //private EmployeeReposiotry _repo;
+        private EmployeeReposiotry _repo;
         public EmployeeV1WithOutDIController() { 
             //_repo = new EmployeeReposiotry();  // Here i am trying to create the instance of the class
         }
@@ -21,12 +21,25 @@ namespace Introduction
         //https://localhost:7115/api/EmployeeV1WithOutDI/GetAllElmployees
         [HttpGet]
         [Route("GetAllElmployees")]
-        public async Task<IActionResult> GetAllEmp()
+        public async Task<IActionResult> GetAllEmpWithoutRepo()
         {
             //_repo =  new EmployeeReposiotry();
             await Task.Delay(1000);
             //var result = _repo._employees();
             return Ok(null);
+        }
+
+
+
+        //https://localhost:7115/api/EmployeeV1WithOutDI/GetAllElmployees
+        [HttpGet]
+        [Route("GetAllElmployeesWithRepo")]
+        public async Task<IActionResult> GetAllEmpWithEmpRepo()
+        {
+            _repo =  new EmployeeReposiotry();
+            await Task.Delay(1000);
+            var result = _repo._employees();
+            return Ok(result);
         }
 
     }

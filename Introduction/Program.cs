@@ -1,4 +1,6 @@
 using Introduction;
+using Introduction.EmployeeV2;
+using Introduction.EmployeeV3;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddControllers();
 
 //you are creating the instance   IEmployeeV2Reposiotry   = new InMemoryEmployeeRepository( i am the boss angularcorecomipler
 builder.Services.AddScoped<IEmployeeV2Reposiotry, InMemoryEmployeeRepository>();
+
+builder.Services.AddScoped<IEmployeeV3Reposiotry, InMemoryEmployeev3Repository>();
 
 //Coffeshop
 
